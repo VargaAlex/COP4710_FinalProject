@@ -1,5 +1,4 @@
 /*Data for the table users */
-
 INSERT INTO Users(u_id) VALUES (198756378);
 INSERT INTO Users(u_id) VALUES (974563125);
 INSERT INTO Users(u_id) VALUES (705786933);
@@ -11,6 +10,7 @@ INSERT INTO Users(u_id) VALUES (315487916);
 INSERT INTO Users(u_id) VALUES (741986532);
 INSERT INTO Users(u_id) VALUES (302548021);
 
+
 /*Data for the table rso */
 INSERT INTO RSO(rso_id, a_id) VALUES (18746, 1326);
 INSERT INTO RSO(rso_id, a_id) VALUES (94638, 4085);
@@ -20,8 +20,66 @@ INSERT INTO RSO(rso_id, a_id) VALUES (34864, 3910);
 
 
 /*Data for the table admins */
-INSERT INTO Admin(u_id, a_id) VALUES (198756378, 1326);
-INSERT INTO Admin(u_id, a_id) VALUES (451387620, 4085);
-INSERT INTO Admin(u_id, a_id) VALUES (705786933, 9015);
-INSERT INTO Admin(u_id, a_id) VALUES (315487916, 3184);
-INSERT INTO Admin(u_id, a_id) VALUES (279854101, 3910);
+INSERT INTO Admins(u_id, a_id) VALUES (198756378, 1326);
+INSERT INTO Admins(u_id, a_id) VALUES (451387620, 4085);
+INSERT INTO Admins(u_id, a_id) VALUES (705786933, 9015);
+INSERT INTO Admins(u_id, a_id) VALUES (315487916, 3184);
+INSERT INTO Admins(u_id, a_id) VALUES (279854101, 3910);
+
+
+/*Data for the table superadmins */
+INSERT INTO SuperAdmins(u_id, sa_id) VALUES (198756378, 1);
+
+
+/*Data for the table events */
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1000, 2023-04-13 12:00:00, Event 1, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1001, 2023-04-18 14:15:00, Event 2, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1002, 2023-05-05 10:45:00, Event 3, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1003, 2023-05-12 16:00:00, Event 4, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1004, 2023-05-15 09:30:00, Event 5, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1005, 2023-05-19 13:00:00, Event 6, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1006, 2023-05-24 18:00:00, Event 7, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1007, 2023-06-02 17:30:00, Event 8, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1008, 2023-06-05 15:15:00, Event 9, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1009, 2023-06-08 15:00:00, Event 10, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1010, 2023-06-13 12:00:00, Event 11, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1011, 2023-06-18 14:15:00, Event 12, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1012, 2023-06-24 10:45:00, Event 13, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1013, 2023-07-02 16:00:00, Event 14, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1014, 2023-07-08 09:30:00, Event 15, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1015, 2023-07-13 13:00:00, Event 16, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1016, 2023-07-20 18:00:00, Event 17, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1017, 2023-07-28 17:30:00, Event 18, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1018, 2023-08-01 15:15:00, Event 19, Orlando);
+INSERT INTO Events(e_id, time, info, l_name) VALUES (1019, 2023-08-04 15:00:00, Event 20, Orlando);
+
+
+/*Data for the table rso_events */
+INSERT INTO RSO_Events(e_id, time, info, l_name, rso_id) VALUES (1000, 2023-04-13 12:00:00, Event 1, Orlando, 9015);
+INSERT INTO RSO_Events(e_id, time, info, l_name, rso_id) VALUES (1004, 2023-05-15 09:30:00, Event 5, Orlando, 1326);
+INSERT INTO RSO_Events(e_id, time, info, l_name, rso_id) VALUES (1008, 2023-06-05 15:15:00, Event 9, Orlando, 3910);
+
+
+/*Data for the table private_events */
+INSERT INTO Private_Events(e_id, time, info, a_id, sa_id) VALUES (1006, 2023-05-24 18:00:00, Event 7, 9015, 1);
+INSERT INTO Private_Events(e_id, time, info, a_id, sa_id) VALUES (1007, 2023-06-02 17:30:00, Event 8, 1326, 1);
+
+
+/*Data for the table joins */
+INSERT INTO Joins(u_id, rso_id) VALUES (642531809, 1326);
+INSERT INTO Joins(u_id, rso_id) VALUES (443582912, 1326);
+INSERT INTO Joins(u_id, rso_id) VALUES (302548021, 4085);
+INSERT INTO Joins(u_id, rso_id) VALUES (974563125, 9015);
+
+
+/*Data for the table comments */
+INSERT INTO Comments(u_id, e_id, text, rating, timestamp) VALUES (741986532, 1000, "Great first meeting, can't wait to come back!!!", 5, 2023-04-13 02:00:00);
+INSERT INTO Comments(u_id, e_id, text, rating, timestamp) VALUES (198756378, 1002, "Could've went better, despite the lack of structure", 3, 2023-05-06 08:00:00);
+INSERT INTO Comments(u_id, e_id, text, rating, timestamp) VALUES (198756378, 1003, "Very insightful.", 4, 2023-05-12 19:00:00);
+INSERT INTO Comments(u_id, e_id, text, rating, timestamp) VALUES (705786933, 1008, "That was fun.", 5, 2023-06-06 08:15:00);
+INSERT INTO Comments(u_id, e_id, text, rating, timestamp) VALUES (451387620, 1010, "No one came :(", 1, 2023-06-13 13:00:00);
+INSERT INTO Comments(u_id, e_id, text, rating, timestamp) VALUES (741986532, 1013, "That was fun.", 5, 2023-07-03 10:00:00);
+INSERT INTO Comments(u_id, e_id, text, rating, timestamp) VALUES (198756378, 1014, "That was interesting...", 4, 2023-07-08 12:30:00);
+INSERT INTO Comments(u_id, e_id, text, rating, timestamp) VALUES (443582912, 1015, "We should do that again!", 4, 2023-07-15 15:00:00);
+INSERT INTO Comments(u_id, e_id, text, rating, timestamp) VALUES (302548021, 1016, "Very disorganized, but at least there was free food.", 2, 2023-07-20 20:00:00);
+INSERT INTO Comments(u_id, e_id, text, rating, timestamp) VALUES (741986532, 1018, "That was fun.", 5, 2023-08-01 17:00:00);
