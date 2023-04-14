@@ -1,0 +1,27 @@
+/*Data for the table users */
+
+INSERT INTO Users(u_id) VALUES (198756378);
+INSERT INTO Users(u_id) VALUES (974563125);
+INSERT INTO Users(u_id) VALUES (705786933);
+INSERT INTO Users(u_id) VALUES (451387620);
+INSERT INTO Users(u_id) VALUES (279854101);
+INSERT INTO Users(u_id) VALUES (642531809);
+INSERT INTO Users(u_id) VALUES (443582912);
+INSERT INTO Users(u_id) VALUES (315487916);
+INSERT INTO Users(u_id) VALUES (741986532);
+INSERT INTO Users(u_id) VALUES (302548021);
+
+/*Data for the table rso */
+INSERT INTO RSO(rso_id, a_id) VALUES (18746, 1326);
+INSERT INTO RSO(rso_id, a_id) VALUES (94638, 4085);
+INSERT INTO RSO(rso_id, a_id) VALUES (77022, 3184);
+INSERT INTO RSO(rso_id, a_id) VALUES (26910, 9015);
+INSERT INTO RSO(rso_id, a_id) VALUES (34864, 3910);
+
+
+/*Data for the table admins */
+INSERT INTO Admin(u_id, a_id) VALUES (198756378, 1326);
+INSERT INTO Admin(u_id, a_id) VALUES (451387620, 4085);
+INSERT INTO Admin(u_id, a_id) VALUES (705786933, 9015);
+INSERT INTO Admin(u_id, a_id) VALUES (315487916, 3184);
+INSERT INTO Admin(u_id, a_id) VALUES (279854101, 3910);
