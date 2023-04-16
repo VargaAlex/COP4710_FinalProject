@@ -8,42 +8,42 @@
 <body>  
 
 <?php
-// define variables and set to empty values
-$u_idErr = "";
-$u_id = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["u_id"])) {
-    $u_idErr = "User ID is required";
-  } else {
-    $u_id = test_input($_POST["u_id"]);
-    // check if u_id only contains letters and whitespace
-    if (!preg_match("/^[0123456789]*$/",$u_id)) {
-      $u_idErr = "Only numbers allowed";
-    }
-  }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
+	include('config.php');
+	session_start();
+	$error = "";
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		$user = mysqli_real_escape_string($db,$_POST['u_id']);
+		$pass = mysqli_real_escape_string($db,$_POST['password']); 
+		
+		$sql = "SELECT u_id FROM Users WHERE u_id = $user";
+		if($res = mysqli_query($db,$sql)) {
+			
+			$count = mysqli_num_rows($res);
+			
+			if($count) {
+				header("location: welcome.php");
+			}
+			else {
+				$error = "Your User ID or Password is invalid.";
+			}
+		}
+		else {
+			$error = "Your User ID or Password is invalid.";
+		}
+	}
 ?>
 
+
+
 <h2>COP4710 Final Project</h2>
-<form method="post" action="welcome.php">  
-  User ID: <input type="text" name="u_id" value="<?php echo $u_id;?>">
-  <input type="hidden" name="u_idErr" value="<?php echo $u_idErr ?>">
-  <span class="error"><?php echo $u_idErr;?></span>
-  <br><br>
-  <input type="submit" name="submit" value="Log In">  
+<?php echo $error; ?> <br /><br />
+<form action = "" method = "post">
+<label>User ID  :</label><input type = "text" name = "u_id" /><br /><br />
+<label>Password  :</label><input type = "password" name = "password" /><br/><br />
+<input type = "submit" value = " Submit "/><br />
 </form>
-<br>
-<form method="post" action="new_user.php">
-	<input type="submit" name="create" value="New User">
-</form>
+
+
 
 </body>
 </html>

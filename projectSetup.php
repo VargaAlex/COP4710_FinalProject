@@ -2,7 +2,9 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "projectTest";
+$dbname = "newDB";
+
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -11,10 +13,18 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error)."<br>";
 }
 
+// Delete existing database
+$sql = "DROP DATABASE ".$dbname;
+if ($conn->query($sql) === TRUE) {
+  echo "Database deleted successfully. ";
+} else {
+  echo "Error deleting database: " . $conn->error."<br>";
+}
+
 // Create database
 $sql = "CREATE DATABASE ".$dbname;
 if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully";
+  echo "Database created successfully. ";
 } else {
   echo "Error creating database: " . $conn->error."<br>";
 }
@@ -29,12 +39,10 @@ if ($conn->connect_error) {
 }
 
 // sql to create table
-$sql = "
--- SQL here
-)";
+$sql = file_get_contents("ProjectStatements.sql");
 
 if ($conn->query($sql) === TRUE) {
-  echo "Table MyGuests created successfully";
+  echo "tables created successfully";
 } else {
   echo "Error creating table: " . $conn->error;
 }
