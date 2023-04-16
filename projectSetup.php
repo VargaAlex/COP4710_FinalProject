@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 // Delete existing database
 $sql = "DROP DATABASE ".$dbname;
 if ($conn->query($sql) === TRUE) {
-  echo "Database deleted successfully. ";
+  echo "Former database deleted successfully. <br />";
 } else {
   echo "Error deleting database: " . $conn->error."<br>";
 }
@@ -24,7 +24,7 @@ if ($conn->query($sql) === TRUE) {
 // Create database
 $sql = "CREATE DATABASE ".$dbname;
 if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully. ";
+  echo "New database created successfully. <br /><br />";
 } else {
   echo "Error creating database: " . $conn->error."<br>";
 }
@@ -39,12 +39,23 @@ if ($conn->connect_error) {
 }
 
 // sql to create table
-$sql = file_get_contents("ProjectStatements.sql");
+include('createTableStatements.php');
+include('defaultData.php');
 
-if ($conn->query($sql) === TRUE) {
-  echo "tables created successfully";
-} else {
-  echo "Error creating table: " . $conn->error;
+foreach ($tables as $k => $sql){
+	if ($conn->query($sql) === TRUE) {
+	  echo "Table $k created successfully<br />";
+	} else {
+	echo "Error creating table $k: " . $conn->error . "<br />";
+	}
+}
+
+foreach ($s as $k => $sql){
+	if ($conn->query($sql) === TRUE) {
+	  echo "Statement $k done successfully<br />";
+	} else {
+	echo "Error with statement $k: " . $conn->error . "<br />";
+	}
 }
 
 $conn->close();
