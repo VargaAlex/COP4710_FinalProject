@@ -39,7 +39,7 @@ if($res = mysqli_query($db,$sql)) {
 	}
 }
 ?>
-
+<a href="view_events.php">View Events</a><br /><br />
 <?php
 // Display user's RSOs, if any 
 $sql = "select rso_id from Joins where u_id = $u_id ";

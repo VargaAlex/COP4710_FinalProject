@@ -3,6 +3,7 @@
 		l_id	INT		AUTO_INCREMENT,
 		l_name 	VARCHAR(30),
 		address VARCHAR(255),
+		info	VARCHAR(255),
 		primary key(l_id)
 	);";
 	
@@ -31,17 +32,21 @@
 
 	$table4 = "create table Events (
 		e_id	INT		AUTO_INCREMENT,
+		e_name	VARCHAR(30),
 		time	INT,
 		info	VARCHAR(255),
-		l_name 	VARCHAR(30) not null,
+		l_id 	INT(30) not null,
 		primary key (e_id),
-		foreign key (l_name) references Location(l_name)
+		foreign key (l_id) references Location(l_id)
 	);";
 
 	$table5 = "create table RSO (
 		rso_id 	INT		AUTO_INCREMENT,
 		a_id 	INT,
+		uni_id	INT not null,
 		name	VARCHAR(30),
+		active  INT 	DEFAULT 0,
+		info	VARCHAR(255),
 		primary key (rso_id),
 		foreign key (a_id) references Admins(a_id)
 	);";
@@ -86,6 +91,7 @@
 	$table10 = "create table Joins (
 		u_id 	INT,
 		rso_id 	INT,
+		since	INT,
 		primary key (u_id, rso_id),
 		foreign key (u_id) references Users(u_id),
 		foreign key (rso_id) references RSO(rso_id)

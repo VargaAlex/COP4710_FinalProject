@@ -7,11 +7,12 @@
 <?php
 	$rso_name;
 	$rso_id = htmlspecialchars($_GET['rso_id']);
-	$sql = "select name from RSO where rso_id = $rso_id ";
+	$sql = "select name, info from RSO where rso_id = $rso_id ";
 	if($res = mysqli_query($db,$sql)) {
 		if($row = mysqli_fetch_array($res)) {
 			$rso_name = $row[0];
-			echo "<h2>RSO Details:</h2><h3>".$rso_name."</h3>";
+			$desc = $row[1];
+			echo "<h2>RSO Details:</h2><h3>".$rso_name."</h3>$desc";
 		}
 	}
 	

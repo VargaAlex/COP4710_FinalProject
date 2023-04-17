@@ -1,5 +1,6 @@
 <?php
    include('config.php');
+   include('header.php');
    
    session_start();
    
@@ -12,11 +13,7 @@
    $u_id = $row['u_id'];
    
    if(!isset($_SESSION['u_id'])){
-      header("location:login.php");
+      header("location:index.php");
       die();
    }
-?>
-
-<?php
-	echo "<h4><a href='welcome.php'>Home</a><br /><a href='logout.php'>Logout</a></h4>";
 ?>
