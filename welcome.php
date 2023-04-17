@@ -16,7 +16,7 @@ $sql = "select name from users where u_id = $u_id ";
 if($res = mysqli_query($db,$sql)) {
 	if($row = mysqli_fetch_array($res)) {
 		$name = $row[0];
-		echo "Welcome $name<br />";
+		echo "Welcome $name<br />User ID: $u_id<br /><br />";
 	}
 }
 ?>

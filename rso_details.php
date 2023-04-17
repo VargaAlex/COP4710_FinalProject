@@ -7,12 +7,36 @@
 <?php
 	$rso_name;
 	$rso_id = htmlspecialchars($_GET['rso_id']);
+	if($rso_id == NULL) {
+		header("location:rso_list.php");
+	}
+	// Check if RSO exists, get its name
 	$sql = "select name, info from RSO where rso_id = $rso_id ";
 	if($res = mysqli_query($db,$sql)) {
 		if($row = mysqli_fetch_array($res)) {
 			$rso_name = $row[0];
 			$desc = $row[1];
 			echo "<h2>RSO Details:</h2><h3>".$rso_name."</h3>$desc";
+		}
+		else {
+			header("location:rso_list.php");
+			die();
+		}
+	}
+	
+	//If user is admin, present edit link
+	//Get admin id for rso
+	$sql = "select a_id from RSO where rso_id = $rso_id";
+	if($res = mysqli_query($db,$sql)) {
+		if($row = mysqli_fetch_array($res)) {
+			$a_id = $row[0];
+			// is user this admin?
+			$sql = "select * from admins where a_id = $a_id and u_id = $u_id";
+			if($res = mysqli_query($db,$sql)) {
+				if($row = mysqli_fetch_array($res)) {
+					echo "<br /><a href='edit_rso.php?rso_id=$rso_id'>Edit Details</a>";
+				}
+			}
 		}
 	}
 	
@@ -22,7 +46,6 @@
 			echo "<h4>Members: $row[0]</h4>";
 		}
 	}
-			
 	
 	$sql = "select count(distinct u_id) as member from Joins where rso_id = $rso_id and u_id = $u_id ";
 	if($res = mysqli_query($db,$sql)) {
