@@ -44,6 +44,7 @@
 <label>User ID  :</label><input type = "text" name = "u_id" /><br /><br />
 <label>Password  :</label><input type = "password" name = "password" /><br/><br />
 <input type = "submit" value = " Submit "/><br />
+<footer>New User?<a href="create_user.php">Register here</a></footer>
 </form>
 
 
