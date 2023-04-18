@@ -1,33 +1,35 @@
+<?php
 
+include('config.php');
+
+?>
 
 <?php
-    // Insert the user into the database
-$sql = "INSERT INTO users (u_id) VALUES ('$u_id')";
-
-    if ($conn->query($sql) === TRUE) {
-        $user_id = $conn->insert_id; // Get the ID of the newly inserted user
+$u_id; 
+$sql = "Select u_id from Users order by u_id DESC LIMIT 1";
+    if ($res = mysqli_query($db,$sql)) {
+        $user_id = $db->insert_id; // Get the ID of the newly inserted user
         echo "User registered successfully with ID: " . $user_id;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql . "<br>" . $db->error;
     }
 
-    // Retrieve the university information from the database
-$sql = "SELECT * FROM University";
-$result = $conn->query($sql);
 
-if ($result-> num_rows > 0) {
+// Retrieve the university information from the database
+$sql = "SELECT * FROM University";
+if ($res = mysqli_query($db,$sql)){
     // Output the university information in a table
     echo "<table>";
     echo "<tr><th>ID</th><th>Name</th><th>Admin ID</th></tr>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["admin_id"] . "</td></tr>";
+    while ($row = $res->fetch_assoc()) {
+        echo "<tr><td>" . $row["uni_id"] . "</td><td>" . $row["uni_name"] . "</td><td>" . $row["sa_id"] . "</td></tr>";
     }
     echo "</table>";
   } else {
     echo "No groups found";
   }
   
-  $conn->close();
+  $db->close();
 ?>
 
 <p>Create User</p>
