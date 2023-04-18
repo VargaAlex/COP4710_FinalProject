@@ -89,11 +89,11 @@
 	// Print Public Events
 	echo "<h3>Public Events </h3>";
 	
-	$pub_events;
+	
 	$sql = "select distinct e_id from public_events";
-	if($res = mysqli_query($db,$sql)) {
+	if($res0 = mysqli_query($db,$sql)) {
 		$k = 0;
-		while($pub_events = mysqli_fetch_array($res)) {
+		while($pub_events = mysqli_fetch_array($res0)) {
 			if ($k >= 5*($pub_pg-1) and $k < 5*($pub_pg) and $k < $pub_avail) {
 				$event_details;
 				$e_id = $pub_events[0];
@@ -103,7 +103,7 @@
 						echo "<br />";
 						echo "<b><a href='event_details.php?e_id=$e_id'>$row[1]</a></b><br />";
 						echo $row[2]."<br />";
-						echo $row[3]."<br />";
+						echo $row[3].":00<br />";
 						echo $row[4]."<br />";
 						$l_id = $row[5];
 						$sql = "select * from location where l_id = $l_id";
@@ -116,13 +116,14 @@
 						echo "<br />";
 					}
 				}
+			$k = $k + 1;
 			}
 		}
 	}
 	
 	echo "<h5>Page $pub_pg of $pub_pages 
-	<a href = 'event_list.php?pub_pg=$pub_pg_l,pri_pg=$pri_pg,rso_pg=$rso_pg'>&lt&ltPrevious</a> 
-	<a href = 'event_list.php?pub_pg=$pub_pg_r,pri_pg=$pri_pg,rso_pg=$rso_pg'>Next&gt&gt</a> 
+	<a href = 'event_list.php?pub_pg=$pub_pg_l&pri_pg=$pri_pg&rso_pg=$rso_pg'>&lt&ltPrevious</a> 
+	<a href = 'event_list.php?pub_pg=$pub_pg_r&pri_pg=$pri_pg&rso_pg=$rso_pg'>Next&gt&gt</a> 
 	<h5/>";
 	
 	echo "<h3>Private University Events </h3>";
@@ -141,7 +142,7 @@
 						echo "<br />";
 						echo "<b><a href='event_details.php?e_id=$e_id'>$row[1]</a></b><br />";
 						echo $row[2]."<br />";
-						echo $row[3]."<br />";
+						echo $row[3].":00<br />";
 						echo $row[4]."<br />";
 						$l_id = $row[5];
 						$sql = "select * from location where l_id = $l_id";
@@ -153,6 +154,7 @@
 						}
 						echo "<br />";
 					}
+				$k = $k + 1;
 				}
 			}
 		}
@@ -160,8 +162,8 @@
 	
 	
 	echo "<h5>Page $pri_pg of $pri_pages 
-	<a href = 'event_list.php?pri_pg=$pub_pg,pri_pg=$pri_pg_l,rso_pg=$rso_pg'>&lt&ltPrevious</a> 
-	<a href = 'event_list.php?pri_pg=$pub_pg,pri_pg=$pri_pg_r,rso_pg=$rso_pg'>Next&gt&gt</a> 
+	<a href = 'event_list.php?pri_pg=$pub_pg&pri_pg=$pri_pg_l&rso_pg=$rso_pg'>&lt&ltPrevious</a> 
+	<a href = 'event_list.php?pri_pg=$pub_pg&pri_pg=$pri_pg_r&rso_pg=$rso_pg'>Next&gt&gt</a> 
 	<h5/>";
 	
 	//RSO events
@@ -188,11 +190,11 @@
 									$sql5 = "select name from RSO where rso_id = $row[0]";
 									if($res5 = mysqli_query($db,$sql5)) {
 										if ($rso_name = mysqli_fetch_array($res5)) {
-											echo "<a href='rso_details.php?rso_id=$row[0]'>$rso_name[0]<br />";
+											echo "<a href='rso_details.php?rso_id=$row[0]'>$rso_name[0]</a><br />";
 										}
 									}
 									echo $row3[2]."<br />";
-									echo $row3[3]."<br />";
+									echo $row3[3].":00<br />";
 									echo $row3[4]."<br />";
 									$l_id = $row3[5];
 									$sql = "select * from location where l_id = $l_id";
@@ -206,15 +208,16 @@
 								}
 							}
 						}
+					$k = $k + 1;
 					}
 				}
 			}
 		}
 	}
 	
-	echo "<h5>Page $pri_pg of $pri_pages 
-	<a href = 'event_list.php?pri_pg=$pub_pg,pri_pg=$pri_pg_l,rso_pg=$rso_pg'>&lt&ltPrevious</a> 
-	<a href = 'event_list.php?pri_pg=$pub_pg,pri_pg=$pri_pg_r,rso_pg=$rso_pg'>Next&gt&gt</a> 
+	echo "<h5>Page $rso_pg of $rso_pages 
+	<a href = 'event_list.php?pri_pg=$pub_pg&pri_pg=$pri_pg&rso_pg=$rso_pg_l'>&lt&ltPrevious</a> 
+	<a href = 'event_list.php?pri_pg=$pub_pg&pri_pg=$pri_pg&rso_pg=$rso_pg_r'>Next&gt&gt</a> 
 	<h5/>";
 	
 ?>
