@@ -3,62 +3,59 @@ include('config.php');
 ?>
 
 <?php
-// Create a new user
-$u_id; 
-$sql = "Select u_id from Users order by u_id DESC LIMIT 1";
-    if ($res = mysqli_query($db,$sql)) {
-        $user_id = $db->insert_id; // Get the ID of the newly inserted user
-        echo "User registered successfully with ID: " . $user_id;
-    } else {
-        echo "Error: " . $sql . "<br>" . $db->error;
-    }
-?>
-
-<?php
-echo "
-<p>
-University: 
-<select name='uniSelect'>
-<option value=''>Select...</option>
-";
-
-// List out the universities
-$sql = "select uni_id, uni_name from univeristy";
-if($res = mysqli_query($db,$sql)) {
-   while($row = mysqli_fetch_array($res)) {
-    $uni_id = $row[0];
-    $uni_name = $row[1];
-    echo "
-    <option value=$l_id>$l_name</option>
-    ";
-  }
-}
-
-// Create University and SuperAdmin
-$sql = "insert into University(uni_name, info) values ('$uni_name', '$info') ";
-if($res = mysqli_query($db,$sql)) {
-    $sql = "select last_insert_id() ";
+$error = "";
     $uni_id;
-    $sa_id;
-      if($res = mysqli_query($db,$sql)) {
-        if($row = mysqli_fetch_array($res)) {
-          $uni_id = $row[0];
-          $sa_id = $row[3];
-        }
+    // List out the universities
+    $sql = "select uni_id, uni_name from university";
+    if($res = mysqli_query($db,$sql)) {
+       while($row = mysqli_fetch_array($res)) {
+        $uni_id = $row[0];
+        $uni_name = $row[1];
+        echo "
+        <select data-label=\"Available Universities\">
+        <option value=\"\">-- Select University -- </option>
+          <option value=$uni_id>$uni_name</option>
+        </select>
+        ";
       }
-      echo "$uni_id
-            $sa_id";
-}
+    }
 
-    echo "
-</select>
-</p>
-<input type = 'hidden' name = 'university' value = 'uniSelect' />
-";
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = mysqli_real_escape_string($db,$_POST['username']);
+    $pass = mysqli_real_escape_string($db,$_POST['password']);
+
+    if($name == null) {
+      $error = "Username is required.";
+    } 
+    else if ($pass == null) {
+      $error = "Password is required.";
+    }
+    else {
+          $name;
+          $pass;
+          $sql = "insert into users (pass, name) values ('$pass', '$name')";
+          if ($res = mysqli_query($db,$sql)) {
+              $u_id = mysqli_insert_id($db); // Get the ID of the newly inserted user
+                 echo "User registered successfully with ID: " . $u_id;
+          } else {
+                 echo "Error adding user: " . mysqli_error($db);
+          }
+      }
+    } 
 ?>
 
-<p>If your university is not listed below, create it here</p>
-<form action="user_create.php" method="post">
-<label>University :</label></label><input type="text" id="university" name="university" required>
-<input type= "submit" value="Submit"/><br />
+<form action="user_create.php" method = "post">
+  <h2>Create a new University? If so, enter below</h2>
+  <div>
+  <input type="radio" id="userSelect1" name="register"  value="Yes" />
+  <input type="radio" id="userSelect2" name="register"  value="No" />
+  <label>No </label>
+  </div>
+  <br><br>
+  <label for="username">Username:</label>
+  <input type="text" name="username" id="username" required><br>
+
+  <label for="password">Password:</label>
+  <input type="password" name="password" id="password" required><br>
+  <input type = "submit" value = " Register "/><br />
 </form>
