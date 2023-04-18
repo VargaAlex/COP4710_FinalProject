@@ -25,7 +25,7 @@
 					if($res = mysqli_query($db,$sql)) {
 						while($row = mysqli_fetch_array($res)) {
 							$e_id = $row[0];
-							include('delete_event.php');
+							include('event_delete.php');
 						}
 					}
 				}

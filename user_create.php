@@ -1,6 +1,4 @@
-<?php
-	include('session.php');
-?>
+
 
 <?php
     // Insert the user into the database
@@ -33,7 +31,7 @@ if ($result-> num_rows > 0) {
 ?>
 
 <p>Create User</p>
-<form action="create_user.php" method="post">
+<form action="user_create.php" method="post">
   <label for="University">University:</label>
   <input type="text" id="university" name="university" required>
 

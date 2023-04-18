@@ -1,7 +1,7 @@
 <?php
 	include('session.php');
 ?>
-<a href = 'create_rso.php'><b>Create an RSO</b></a>
+<a href = 'rso_create.php'><b>Create an RSO</b></a>
 <h2> RSO Groups </h2>
 
 <?php

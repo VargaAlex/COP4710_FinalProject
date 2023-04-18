@@ -63,7 +63,7 @@
 					}
 				}
 				echo $rso_id;
-				header("location: join_rso.php?rso_id=$rso_id ");
+				header("location: rso_join.php?rso_id=$rso_id ");
 			}
 		}
 	}

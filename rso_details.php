@@ -34,7 +34,7 @@
 			$sql = "select * from admins where a_id = $a_id and u_id = $u_id";
 			if($res = mysqli_query($db,$sql)) {
 				if($row = mysqli_fetch_array($res)) {
-					echo "<br /><a href='edit_rso.php?rso_id=$rso_id'>Edit Details</a>";
+					echo "<br /><a href='rso_edit.php?rso_id=$rso_id'>Edit Details</a>";
 				}
 			}
 		}
@@ -68,11 +68,11 @@
 					}
 				}
 				// Leave Link
-				echo "<br /><br /><a href='leave_rso.php?rso_id=$rso_id'>Leave $rso_name</a>";
+				echo "<br /><br /><a href='rso_leave.php?rso_id=$rso_id'>Leave $rso_name</a>";
 			}
 			else {
 				// Join Link
-				echo "<a href='join_rso.php?rso_id=$rso_id'>Join $rso_name</a>";
+				echo "<a href='rso_join.php?rso_id=$rso_id'>Join $rso_name</a>";
 			}
 		}
 	}
