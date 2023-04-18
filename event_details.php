@@ -2,12 +2,12 @@
 	include('session.php');
 ?>
 
-<h2>Event Details; </h2>
+<h2>Event Details </h2>
 
 <?php
 	$e_name;
 	$e_id = htmlspecialchars($_GET['e_id']);
-	if($rso_id == NULL) {
+	if($e_id == NULL) {
 		header("location:event_list.php");
 	}
 	

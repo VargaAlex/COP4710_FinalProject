@@ -1,3 +1,7 @@
+<?php 
+	// File Written by Alex Varga
+?>
+
 <?php
 	include('session.php');
 	$pub_pg;
@@ -92,11 +96,12 @@
 		while($pub_events = mysqli_fetch_array($res)) {
 			if ($k >= 5*($pub_pg-1) and $k < 5*($pub_pg) and $k < $pub_avail) {
 				$event_details;
-				$sql = "select * from events where e_id = $pub_events[0] ";
+				$e_id = $pub_events[0];
+				$sql = "select * from events where e_id = $e_id ";
 				if($res = mysqli_query($db,$sql)) {
 					while($row = mysqli_fetch_array($res)) {
 						echo "<br />";
-						echo $row[1]."<br />";
+						echo "<b><a href='event_details.php?e_id=$e_id'>$row[1]</a></b><br />";
 						echo $row[2]."<br />";
 						echo $row[3]."<br />";
 						echo $row[4]."<br />";
@@ -129,11 +134,12 @@
 		while($pri_events = mysqli_fetch_array($res)) {
 			if ($k >= 5*($pri_pg-1) and $k < 5*($pri_pg) and $k < $pri_avail) {
 				$event_details;
-				$sql = "select * from events where e_id = $pri_events[0] ";
+				$e_id = $pri_events[0];
+				$sql = "select * from events where e_id = $e_id ";
 				if($res = mysqli_query($db,$sql)) {
 					while($row = mysqli_fetch_array($res)) {
 						echo "<br />";
-						echo $row[1]."<br />";
+						echo "<b><a href='event_details.php?e_id=$e_id'>$row[1]</a></b><br />";
 						echo $row[2]."<br />";
 						echo $row[3]."<br />";
 						echo $row[4]."<br />";
@@ -173,17 +179,18 @@
 					while($rso_events = mysqli_fetch_array($res2)) {
 						if ($k >= 5*($rso_pg-1) and $k < 5*($rso_pg) and $k < $rso_avail) {
 							$event_details;
-							$sql3 = "select * from events where e_id = $rso_events[0] ";
+							$e_id = $rso_events[0];
+							$sql3 = "select * from events where e_id = $e_id ";
 							if($res3 = mysqli_query($db,$sql3)) {
 								while($row3 = mysqli_fetch_array($res3)) {
 									echo "<br />";
+									echo "<b><a href='event_details.php?e_id=$e_id'>$row3[1]</a></b><br />";
 									$sql5 = "select name from RSO where rso_id = $row[0]";
 									if($res5 = mysqli_query($db,$sql5)) {
 										if ($rso_name = mysqli_fetch_array($res5)) {
-											echo $rso_name[0]."<br />";
+											echo "<a href='rso_details.php?rso_id=$row[0]'>$rso_name[0]<br />";
 										}
 									}
-									echo $row3[1]."<br />";
 									echo $row3[2]."<br />";
 									echo $row3[3]."<br />";
 									echo $row3[4]."<br />";
@@ -211,5 +218,4 @@
 	<h5/>";
 	
 ?>
-
 
