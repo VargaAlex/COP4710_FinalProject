@@ -33,6 +33,7 @@
 	$table4 = "create table Events (
 		e_id	INT		AUTO_INCREMENT,
 		e_name	VARCHAR(30),
+		date	VARCHAR(11),
 		time	INT,
 		info	VARCHAR(255),
 		l_id 	INT(30) not null,
@@ -70,7 +71,7 @@
 
 	$table8 = "create table Private_Events (
 		e_id	INT,
-		a_id 	INT not null,
+		a_id 	INT,
 		sa_id 	INT not null,
 		primary key (e_id),
 		foreign key (e_id) references Events(e_id),
@@ -80,7 +81,7 @@
 
 	$table9 = "create table Public_Events (
 		e_id	INT,
-		a_id 	INT not null,
+		a_id 	INT,
 		sa_id 	INT not null,
 		primary key (e_id),
 		foreign key (e_id) references Events(e_id),

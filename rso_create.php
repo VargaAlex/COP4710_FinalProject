@@ -62,7 +62,6 @@
 						$rso_id = $row[0];
 					}
 				}
-				echo $rso_id;
 				header("location: rso_join.php?rso_id=$rso_id ");
 			}
 		}

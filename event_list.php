@@ -99,7 +99,8 @@
 						echo $row[1]."<br />";
 						echo $row[2]."<br />";
 						echo $row[3]."<br />";
-						$l_id = $row[4];
+						echo $row[4]."<br />";
+						$l_id = $row[5];
 						$sql = "select * from location where l_id = $l_id";
 						if($res_l = mysqli_query($db,$sql)) {
 							while($row = mysqli_fetch_array($res_l)) {
@@ -135,7 +136,8 @@
 						echo $row[1]."<br />";
 						echo $row[2]."<br />";
 						echo $row[3]."<br />";
-						$l_id = $row[4];
+						echo $row[4]."<br />";
+						$l_id = $row[5];
 						$sql = "select * from location where l_id = $l_id";
 						if($res_l = mysqli_query($db,$sql)) {
 							while($row = mysqli_fetch_array($res_l)) {
@@ -184,7 +186,8 @@
 									echo $row3[1]."<br />";
 									echo $row3[2]."<br />";
 									echo $row3[3]."<br />";
-									$l_id = $row3[4];
+									echo $row3[4]."<br />";
+									$l_id = $row3[5];
 									$sql = "select * from location where l_id = $l_id";
 									if($res_4 = mysqli_query($db,$sql)) {
 										while($row4 = mysqli_fetch_array($res_4)) {
