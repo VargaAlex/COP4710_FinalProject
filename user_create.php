@@ -21,6 +21,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           if ($res = mysqli_query($db,$sql)) {
               $u_id = mysqli_insert_id($db); // Get the ID of the newly inserted user
                  echo "User registered successfully with ID: " . $u_id;
+                 
+                 $uni_name = mysqli_real_escape_string($db,$_POST[$uni_name]);
+                 // register the university to be used for university_create
+                 $uni_name;
+                 $sql = "insert into university (uni_name) values" ($uni_name);
+                  if ($res = mysqli_query($db,$sql)) {
+                      $uni_id = mysqli_insert_id($db); // Get the ID of the newly inserted university
+                      echo "University registered successfully with ID: " . $uni_id;
+                 } else {
+                  echo "Error adding university: " . mysqli_error($db);
+                 }
+
           } else {
                  echo "Error adding user: " . mysqli_error($db);
           }
@@ -42,7 +54,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
     $uni_id;
-    $sa_id;
     // List out the universities
     $sql = "select uni_id, uni_name from university";
     if($res = mysqli_query($db,$sql)) {
