@@ -1,3 +1,7 @@
+<?php 
+	// File Written by Alex Varga
+?>
+
 <?php
 	$s = array();
 	

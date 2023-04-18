@@ -1,3 +1,7 @@
+<?php 
+	// File Written by Alex Varga
+?>
+
 <?php
    include('config.php');
    include('header.php');

@@ -1,3 +1,7 @@
+<?php 
+	// File Written by Alex Varga
+?>
+
 <?php
    define('DB_SERVER', 'localhost');
    define('DB_USERNAME', 'root');

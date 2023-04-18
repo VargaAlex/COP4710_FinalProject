@@ -1,4 +1,8 @@
 <?php 
+	// File Written by Alex Varga
+?>
+
+<?php 
 	$table0 = "create table Location (
 		l_id	INT		AUTO_INCREMENT,
 		l_name 	VARCHAR(30),
