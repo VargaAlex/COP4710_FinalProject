@@ -21,8 +21,8 @@
 	
 	$sql = "select count(distinct u_id) as member from Joins where rso_id = $rso_id";
 	if($res = mysqli_query($db,$sql)) {
-		if($row = mysqli_fetch_array($res)) {
-			if($row[0] < 1){
+		if($row = mysqli_fetch_array($res)) { echo $row[0];
+			if($row[0] < 1){ 
 				$sql = "delete from RSO where rso_id = $rso_id";
 				if($res = mysqli_query($db,$sql)) {
 					$sql = "select e_id from RSO_events where rso_id = $rso_id";
@@ -35,7 +35,7 @@
 				}
 			}
 			else {
-				if($row[0] < 4) {
+				if($row[0] < 5) {
 					$sql = "update RSO set active = 0 where rso_id = $rso_id ";
 					if($res = mysqli_query($db,$sql)) {	
 					}

@@ -87,7 +87,7 @@
 	$rso_pg_r = MIN($rso_pg + 1, $rso_pages);
 	
 	// Print Public Events
-	echo "<h3>Public Events </h3>";
+	echo "<a href=event_create.php>Create New Event</a><h3>Public Events </h3>";
 	
 	
 	$sql = "select distinct e_id from public_events";

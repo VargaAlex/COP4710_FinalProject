@@ -38,16 +38,16 @@
 	$s[26] = "insert into RSO(a_id, uni_id, name, info) values(1, 1, 'Climbing Club', 'UCF\'s Climbing club, founded 2023. We have meetings every Tuesday and Thursday at 8 AM! Come by to see what\'s up!')";
 	
 	// Joins for the clubs
-	$s[27] = "insert into Joins(u_id, rso_id) values(1,1)";
-	$s[28] = "insert into Joins(u_id, rso_id) values(11,1)";
-	$s[29] = "insert into Joins(u_id, rso_id) values(12,1)";
-	$s[30] = "insert into Joins(u_id, rso_id) values(13,1)";
-	$s[31] = "insert into Joins(u_id, rso_id) values(14,1)";
-	$s[32] = "insert into Joins(u_id, rso_id) values(7,2)";
-	$s[33] = "insert into Joins(u_id, rso_id) values(8,2)";
-	$s[34] = "insert into Joins(u_id, rso_id) values(9,2)";
-	$s[35] = "insert into Joins(u_id, rso_id) values(10,2)";
-	$s[36] = "insert into Joins(u_id, rso_id) values(1,3)";
+	$s[27] = "insert into Joins(u_id, rso_id, since) values(1,1, 1112)";
+	$s[28] = "insert into Joins(u_id, rso_id, since) values(11,1, 1113)";
+	$s[29] = "insert into Joins(u_id, rso_id, since) values(12,1, 1114)";
+	$s[30] = "insert into Joins(u_id, rso_id, since) values(13,1, 1115)";
+	$s[31] = "insert into Joins(u_id, rso_id, since) values(14,1, 1116)";
+	$s[32] = "insert into Joins(u_id, rso_id, since) values(7,2, 1117)";
+	$s[33] = "insert into Joins(u_id, rso_id, since) values(8,2, 1118)";
+	$s[34] = "insert into Joins(u_id, rso_id, since) values(9,2, 1119)";
+	$s[35] = "insert into Joins(u_id, rso_id, since) values(10,2, 11111)";
+	$s[36] = "insert into Joins(u_id, rso_id, since) values(1,3, 11112)";
 	
 	// Create the Admins for the clubs
 	$s[37] = "insert into admins(u_id) values(1)";
@@ -59,16 +59,16 @@
 	$s[41] = "insert into location(l_name, address, info) values ('Alex\'s House', 'This is where my address would go.', 'Red door, bring snacks to bribe the DM.')";
 	
 	// Create 10 events, 6 rso events, 3 public events, 1 private event
-	$s[42] = "insert into events(e_name, date, time, info, l_id) values('Session 1', '04-18-2023', 19, 'Session 1 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
-	$s[43] = "insert into events(e_name, date, time, info, l_id) values('Session 2', '04-25-2023', 19, 'Session 2 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
-	$s[44] = "insert into events(e_name, date, time, info, l_id) values('Session 3', '05-02-2023', 19, 'Session 3 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
-	$s[45] = "insert into events(e_name, date, time, info, l_id) values('Session 4', '05-09-2023', 19, 'Session 4 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
-	$s[46] = "insert into events(e_name, date, time, info, l_id) values('Session 5', '05-16-2023', 19, 'Session 5 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
-	$s[47] = "insert into events(e_name, date, time, info, l_id) values('Session 6', '05-23-2023', 19, 'Session 6 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
-	$s[48] = "insert into events(e_name, date, time, info, l_id) values('Housing Tour', '04-23-2023', 12, 'A tour of UCF\'s on-campus housing. Open to all, regardless of enrollment status.', 1)";
-	$s[49] = "insert into events(e_name, date, time, info, l_id) values('Housing Tour', '04-25-2023', 12, 'A tour of UCF\'s on-campus housing. Open to all, regardless of enrollment status.', 1)";
-	$s[50] = "insert into events(e_name, date, time, info, l_id) values('Housing Tour', '04-27-2023', 12, 'A tour of UCF\'s on-campus housing. Open to all, regardless of enrollment status.', 1)";
-	$s[51] = "insert into events(e_name, date, time, info, l_id) values('Sit in on COP4710', '04-18-2023', 13, 'A once in a lifetime opportunity to sit in on Dr. Vu\'s COP4710 lecture.', 2)";
+	$s[42] = "insert into events(e_name, date, time, info, l_id) values('Session 1', '2023-04-18', 19, 'Session 1 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
+	$s[43] = "insert into events(e_name, date, time, info, l_id) values('Session 2', '2023-04-25', 19, 'Session 2 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
+	$s[44] = "insert into events(e_name, date, time, info, l_id) values('Session 3', '2023-05-02', 19, 'Session 3 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
+	$s[45] = "insert into events(e_name, date, time, info, l_id) values('Session 4', '2023-05-09', 19, 'Session 4 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
+	$s[46] = "insert into events(e_name, date, time, info, l_id) values('Session 5', '2023-05-16', 19, 'Session 5 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
+	$s[47] = "insert into events(e_name, date, time, info, l_id) values('Session 6', '2023-05-23', 19, 'Session 6 of our weekly Storm King\'s Thunder Adventure. Open to all members.', 3)";
+	$s[48] = "insert into events(e_name, date, time, info, l_id) values('Housing Tour', '2023-04-23', 12, 'A tour of UCF\'s on-campus housing. Open to all, regardless of enrollment status.', 1)";
+	$s[49] = "insert into events(e_name, date, time, info, l_id) values('Housing Tour', '2023-04-25', 12, 'A tour of UCF\'s on-campus housing. Open to all, regardless of enrollment status.', 1)";
+	$s[50] = "insert into events(e_name, date, time, info, l_id) values('Housing Tour', '2023-04-27', 12, 'A tour of UCF\'s on-campus housing. Open to all, regardless of enrollment status.', 1)";
+	$s[51] = "insert into events(e_name, date, time, info, l_id) values('Sit in on COP4710', '2023-04-18', 13, 'A once in a lifetime opportunity to sit in on Dr. Vu\'s COP4710 lecture.', 2)";
 	$s[52] = "insert into rso_events(e_id, rso_id) values (1,1)";
 	$s[53] = "insert into rso_events(e_id, rso_id) values (2,1)";
 	$s[54] = "insert into rso_events(e_id, rso_id) values (3,1)";

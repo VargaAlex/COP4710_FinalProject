@@ -102,16 +102,6 @@
 		foreign key (rso_id) references RSO(rso_id)
 	);";
 
-	$table11 = "create table Comments (
-		u_id 	INT,
-		e_id 	INT,
-		text 	VARCHAR(255),
-		rating 	INT,
-		timestamp 	DATE,
-		primary key (u_id, e_id),
-		foreign key (u_id) references Users(u_id),
-		foreign key (e_id) references Events(e_id)
-	);";
 
-	$tables = [$table0, $table1, $table2, $table3, $table4, $table5, $table6, $table7, $table8, $table9, $table10, $table11];
+	$tables = [$table0, $table1, $table2, $table3, $table4, $table5, $table6, $table7, $table8, $table9, $table10];
 ?>
